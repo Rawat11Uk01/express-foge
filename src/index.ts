@@ -1,11 +1,12 @@
 import express from "express";
+import tasksRouter from "./routes/tasks";
 
 const app = express();
 
-app.get("/", (req, res) => {
-  return res.end("i am data again");
-});
+app.use(express.json());
+
+app.use("/api/v1/tasks", tasksRouter);
 
 app.listen(3000, () => {
-  console.log("hey i am listening to 3000");
+  console.log("hello");
 });
